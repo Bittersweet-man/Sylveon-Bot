@@ -112,13 +112,6 @@ bot.on('message', async message => {
 
 
 bot.on('message', function (message) {
-    if (message.content == "reset") {
-        dl.SetXp(message.author.id, 1)
-        dl.SetLevel(message.author.id, 0)
-    }
-    if (message.content == "delete") {
-        dl.Delete(message.author.id)
-    }
     if (message.content == "accept") {
         message.reply('You have been accepted to the Sylveon Squad!')
         message.member.addRole('473668077754777602')

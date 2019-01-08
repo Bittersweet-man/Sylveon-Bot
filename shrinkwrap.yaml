@@ -6,7 +6,7 @@ dependencies:
   express: 4.16.4
   ffmpeg-binaries: 4.0.0
   lyrics-fetcher: 1.0.2
-  opusscript: 0.0.6
+  node-opus: 0.3.1
   sequelize: 4.42.0
   sqlite: 3.0.0
   sqlite3: 4.0.4
@@ -122,6 +122,15 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-FAqPi+jUl6VBBDZpIZPtva+VcYAxw3sbXKjImNBPvK1TmU6bCuaPn42XuNk6VL6Vhjl5KBZpeIesxJlDqTFBqA==
+  /bindings/1.2.1:
+    dev: false
+    resolution:
+      integrity: sha1-FK1hE4EtLTfXLme0ystLtyZQXxE=
+  /bindings/1.3.1:
+    dev: false
+    optional: true
+    resolution:
+      integrity: sha512-i47mqjF9UbjxJhxGf+pZ6kSxrnI3wBLlnGI2ArWJ4r0VrvDS7ZYXkprq/pLaBWYq4GM0r4zdHY+NNRqEMU7uew==
   /bl/1.2.2:
     dependencies:
       readable-stream: 2.3.6
@@ -219,6 +228,10 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-brWl9y6vOB1xYPZcpZde3N9zDByXTosAeMDo4p1wzo6UMOX4vumB+TP1RZ76sfE6Md68Q0NJSrE/gbezd4Ul+w==
+  /commander/2.19.0:
+    dev: false
+    resolution:
+      integrity: sha512-6tvAOO+D6OENvRAh524Dh9jcfKTYDQAqvqezbCW82xj5X0pSrcpxtvRKHLG0yBY6SD7PSDrJaj+0AiOcKVd1Xg==
   /commander/2.8.1:
     dependencies:
       graceful-readlink: 1.0.1
@@ -1036,6 +1049,19 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-KzJxhOiZIQEXeyhWP7XnECrNDKk=
+  /node-opus/0.3.1:
+    dependencies:
+      bindings: 1.2.1
+      commander: 2.19.0
+      nan: 2.12.1
+    dev: false
+    engines:
+      node: '>=5.10.0'
+    optionalDependencies:
+      ogg-packet: 1.0.0
+    requiresBuild: true
+    resolution:
+      integrity: sha512-1Cb8OvHhdDspVfeKMjEgbedJabyE1Ib6OcN2BMEsRCU7FIsciuBpOErcie3y0qTf83nclPAY+kBU3Oj+U+oRlQ==
   /node-pre-gyp/0.10.3:
     dependencies:
       detect-libc: 1.0.3
@@ -1096,6 +1122,13 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
+  /ogg-packet/1.0.0:
+    dependencies:
+      ref-struct: 1.1.0
+    dev: false
+    optional: true
+    resolution:
+      integrity: sha1-RbiFchrI991c8iOR1CEGrlM6xng=
   /on-finished/2.3.0:
     dependencies:
       ee-first: 1.1.1
@@ -1110,10 +1143,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-WDsap3WWHUsROsF9nFC6753Xa9E=
-  /opusscript/0.0.6:
-    dev: false
-    resolution:
-      integrity: sha512-F7nx1SWZCD5Rq2W+5Fx39HlkRkz/5Zqt0LglEB9uHexk8HjedDEiM+u/Y2rBfDFcS/0uQIWu2lJhw+Gjsta+cA==
   /os-homedir/1.0.2:
     dev: false
     engines:
@@ -1275,6 +1304,24 @@ packages:
       node: '>= 6'
     resolution:
       integrity: sha512-DkN66hPyqDhnIQ6Jcsvx9bFjhw214O4poMBcIMgPVpQvNy9a0e0Uhg5SqySyDKAmUlwt8LonTBz1ezOnM8pUdA==
+  /ref-struct/1.1.0:
+    dependencies:
+      debug: 2.6.9
+      ref: 1.3.5
+    dev: false
+    optional: true
+    resolution:
+      integrity: sha1-XV7mWtQc78Olxf60BYcmHkee3BM=
+  /ref/1.3.5:
+    dependencies:
+      bindings: 1.3.1
+      debug: 2.6.9
+      nan: 2.12.1
+    dev: false
+    optional: true
+    requiresBuild: true
+    resolution:
+      integrity: sha512-2cBCniTtxcGUjDpvFfVpw323a83/0RLSGJJY5l5lcomZWhYpU2cuLdsvYqMixvsdLJ9+sTdzEkju8J8ZHDM2nA==
   /request/2.88.0:
     dependencies:
       aws-sign2: 0.7.0
@@ -1755,7 +1802,7 @@ specifiers:
   express: ^4.16.4
   ffmpeg-binaries: ^4.0.0
   lyrics-fetcher: ^1.0.2
-  opusscript: ^0.0.6
+  node-opus: ^0.3.1
   sequelize: ^4.42.0
   sqlite: ^3.0.0
   sqlite3: ^4.0.4

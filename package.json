@@ -9,18 +9,19 @@
   },
   "dependencies": {
     "better-sqlite3": "^5.2.1",
+    "discord-leveling": "^1.0.1",
     "discord.js": "^11.4.2",
     "discord.js-commando": "^0.10.0",
     "express": "^4.16.4",
     "ffmpeg-binaries": "^4.0.0",
     "lyrics-fetcher": "^1.0.2",
-    "opusscript": "^0.0.6",
-    "sqlite": "^3.0.0",
-    "superagent": "^4.0.0",
-    "ytdl-core": "^0.28.3",
-    "discord-leveling": "^1.0.1",
+    "node-opus": "^0.3.1",
     "sequelize": "^4.42.0",
-    "sqlite3": "^4.0.4"
+    "sqlite": "^3.0.0",
+    "sqlite3": "^4.0.5",
+    "superagent": "^4.0.0",
+    "wiring-op": "^2.1.1",
+    "ytdl-core": "^0.29.0"
   },
   "engines": {
     "node": "8.4.0"
