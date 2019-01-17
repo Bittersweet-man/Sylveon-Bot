@@ -1837,7 +1837,7 @@ specifiers:
   discord-leveling: ^1.0.1
   discord.js: ^11.4.2
   discord.js-commando: ^0.10.0
-  express: ^4.16.4
+  express: ^4.15.5
   ffmpeg-binaries: ^4.0.0
   lyrics-fetcher: ^1.0.2
   node-opus: ^0.3.1

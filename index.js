@@ -2,12 +2,12 @@ const http = require('http');
 const express = require('express');
 const app = express();
 app.get("/", (request, response) => {
-    console.log(Date.now() + " Ping Received");
-    response.sendStatus(200);
+  console.log(Date.now() + " Ping Received");
+  response.sendStatus(200);
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-    http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
 }, 280000);
 
 
@@ -15,8 +15,9 @@ const Commando = require('discord.js-commando');
 const TOKEN = process.env.TOKEN;
 const bot = new Commando.Client({
     commandPrefix: "?",
-    owner: "462709446121095169",
-    owner: "413754421365964800"
+      owner: "413754421365964800",
+    owner: "462709446121095169"
+
 })
 const discord = require('discord.js')
 const SQLite = require("better-sqlite3");
@@ -95,23 +96,50 @@ bot.on('message', async message => {
     }
     var channel = message.guild.channels.find(channel => channel.name === "staff")
     if (message.content == "leaderboard") {
-        message.channel.send("This command worked")
-
-        //If you put a mention behind the command it searches for the mentioned user in database and tells the position.
-        if (message.mentions.users.first()) {
-
-            var output = await dl.Leaderboard({
-                search: message.mentions.users.first().id
-            })
-            message.channel.send(`The user ${message.mentions.users.first().tag} is number ${output.placement} on my leaderboard!`);
-        }
+    //If you put a mention behind the command it searches for the mentioned user in database and tells the position.
+    if (message.mentions.users.first()) {
+ 
+      var output = await dl.Leaderboard({
+        search: message.mentions.users.first().id
+      })
+      message.channel.send(`The user ${message.mentions.users.first().tag} is number ${output.placement} on my leaderboard!`);
+ 
+      //Searches for the top 3 and outputs it to the user.
+    } else {
+ 
+      dl.Leaderboard({
+        limit: 3
+      }).then(async users => { //make sure it is async
+ 
+        var firstplace = await bot.fechUser(users[0].userid) //Searches for the user object in discord for first place
+        var secondplace = await bot.fetchUser(users[1].userid) //Searches for the user object in discord for second place
+        var thirdplace = await bot.fetchUser(users[2].userid) //Searches for the user object in discord for third place
+ 
+        message.channel.send(`My leaderboard:
+ 
+1 - ${firstplace.tag} : ${users[0].level} : ${users[0].xp}
+2 - ${secondplace.tag} : ${users[1].level} : ${users[1].xp}
+3 - ${thirdplace.tag} : ${users[2].level} : ${users[2].xp}`)
+ 
+      })
+ 
     }
-})
+  }
+}
+)
 
 
 
 
 bot.on('message', function (message) {
+  if(message.content == "test"){
+   message.reply("okk") 
+  }
+  if(message.content == "reboot"){
+    message.channel.send('Resetting...')
+    .then(msg => bot.destroy())
+    .then(() => bot.login('NTExMDA2MDU0NDk1Mjg5MzU0.DxA4dg.oLhvW15TbZ6th6T8jHSPBUb1drI'));
+  }
     if (message.content == "accept") {
         message.reply('You have been accepted to the Sylveon Squad!')
         message.member.addRole('473668077754777602')

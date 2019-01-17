@@ -28,7 +28,7 @@ class KickCommand extends Commando.Command {
         let reason = words.slice(1).join(' ');
         message.guild.member(kickedUser).kick(reason)
         message.reply("Alright, user " + kickedUser.displayName + " has been kicked.")
-        var channel = message.guild.channels.find("name", "modlogs");
+        var channel = message.guild.channels.find(channel => channel.name === "modlogs")
         let kEmbed = new discord.RichEmbed()
             .setTitle('Kick')
             .addField('Kicked User', kickedUser)

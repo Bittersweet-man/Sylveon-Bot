@@ -28,7 +28,7 @@ class BanCommand extends Commando.Command {
         var reason = words.slice(1).join(' ');
         message.guild.member(BannedUser).ban(reason)
         message.reply("Alright, user " + BannedUser.displayName + " has been banned.")
-        var channel = message.guild.channels.find("name", "modlogs");
+        var channel = message.guild.channels.find(channel => channel.name === "modlogs")
         let bEmbed = new discord.RichEmbed()
             .setTitle('Ban')
             .addField('Banned User', BannedUser)

@@ -14,6 +14,10 @@ class DMCommand extends Commando.Command {
 
 
     async run(message, args) {
+      if (!message.member.hasPermission("KICK_MEMBERS")) {
+            message.channel.send("You don't have permissions to use this command!");
+            return;
+        }
         var member = message.guild.member(message.mentions.users.first());
         let words = args.split(' ');
         let DMmessage = words.slice(1).join(' ');

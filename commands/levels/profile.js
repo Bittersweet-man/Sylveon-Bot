@@ -17,7 +17,7 @@ class EXPCommand extends Commando.Command {
         var user = message.mentions.users.first() || message.author
         var output = await dl.Fetch(user.id)
         //message.channel.send(`Hey ${user.tag}! You have ${output.level} level(s)! and ${output.xp} xp!`);
-
+var leaderboard = dl.Leaderboard({search: 'message.author.id'})
         var ProfileEmbed = new discord.RichEmbed()
             .setTitle("Profile")
             .setThumbnail(user.avatarURL)
@@ -25,7 +25,7 @@ class EXPCommand extends Commando.Command {
             .addField("Level", `${output.level}`)
             .addField("XP", `${output.xp}`)
             .setColor('RANDOM')
-            .setFooter("You're rank null in the server!")
+            .setFooter("You're rank " + leaderboard + " in the server!")
             .setTimestamp()
 
         message.channel.send(ProfileEmbed);
